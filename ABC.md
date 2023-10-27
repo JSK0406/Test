@@ -47,22 +47,23 @@
 
 ### CarClass
 
-- util의 isForward를 실행하여 true면 forwardCount += 1, false면 변화없음 - Car # tryForward
+- util의 isForward를 실행하여 true면 forwardCount += 1, false면 변화없음 - Car # tryMoveForward
 - 해당 인스턴스의 name, forwardCount를 반환함 - Car # getCarState
 
 ### RacingClass
 
-- 자동차 이름 어레이를 받아 생성한 인스턴스 어레이를 프로퍼티에 저장 # setCarArray
+- 자동차 이름 어레이를 받아 생성한 인스턴스 어레이를 프로퍼티에 저장 Racing # setCarArray
 - 자동차의 정보들(name, forwardCount)을 반환함 - Racing # getCarStateArray
-- 자동차들 action을 한 사이클 try함 - Racing # playRound
+- 자동차들 action을 한 사이클 try함 - Racing # tryCarsMove
 
 ### RacingController
 
-- RacingClass에서 playRound를 실행하고, 이후 CarStateArray를 받아 OutputView로 넘김 - RacingController # startRound
-- InputView에서 자동차 이름들을 받아 util의 splitByComma로 어레이로 변환해 RacingClass로 넘김 - RacingController # setupCars
-- 전달받은 횟수로 라운드 반복 - RacingController # runRounds
-- RacingClass에서 nowStatus를 받아 util의 getWinners를 거쳐 OutView로 우승자 정보를 넘김 - finishRacing
-- setUpCars, startRacing, finishRacing 실행 - RacingController # playRacing
+- RacingClass에서 playRound를 실행하고, 이후 carStateArray를 받아 OutputView로 넘김 - RacingController # runRound
+- InputView에서 자동차 이름들을 RacingClass의 setCarArray로 넘김 - RacingController # setupCars
+- InputView에서 시도횟수를 받음 - RacingController # setupRoundsCount
+- InputView에서 전달받은 횟수 동안 runRound 실행 - RacingController # startRacing
+- RacingClass에서 carStateArray를 받아 util의 getWinners를 거쳐 OutView로 우승자 정보를 넘김 - RacingController # finishRacing
+- setUpCars, setupRoundsCount, startRacing, finishRacing 실행 - RacingController # start
 
 ### InputView
 
@@ -77,5 +78,5 @@
 
 ### Constants
 
-- 에러메시지들을 저장 - Constants # errorMassage
-- 사용자에게 보여줄 메시지들을 저장 - Constants # printMsg
+- 에러메시지들을 저장 - Constants # errorMessage
+- 사용자에게 보여줄 메시지들을 저장 - Constants # printMessage
