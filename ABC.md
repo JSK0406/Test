@@ -1,26 +1,79 @@
-# 숫자 야구
+# 자동차 경주
 
-**컴퓨터가 랜덤 생성한 숫자를 유저가 힌트를 통해 맞추는 게임**
+## 기능 요구사항 요약
 
-## 입력
+- n대의 자동차는 전진 또는 멈춤 동작
+- 각 자동차에는 이름을 부여
+- 자동차 이름은 쉼표로 구분하고 5자 이하만 가능
+- 사용자가 n번 입력
+- 0~9사이에 무작위 값을 구해서 4이상이면 전진 아니면 정지
+- 끝나면 우승이고 우승자는 한 명 이상일 수 있음
+- 우승자가 여러명이면 쉼표를 이용해 구분
+- 잘못된 값이면 throw error
 
-- 서로 다른 3자리의 수 ⇒ 에러는 문자를 포함할 때, 3자리가 아닐 때, 0이 포함될 때, 숫자가 중복될 때
-- 재시작 / 종료를 구분하는 1과 2 ⇒ 이외에는 모두 에러
+## 유저 플로우
 
-## 출력
+1. ‘경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)’ 메시지 출력
+2. 사용자가 쉼표로 구분해 자동차이름 입력 ex) ‘pobi, woni, jun’ (여기서 쉼표 기준으로 split하고 각각 문자열 trim 해주면 좋을듯 ⇒ 사용자 편의)
+3. ‘시도할 횟수는 몇 회인가요?’ 메시지 출력
+4. 사용자가 횟수를 입력
+5. ‘실행 결과’ 메시지 출력
+6. 입력된 이름의 순서를 기준으로 ‘${이름} : ${dashedLine}’ 형식으로 라운드 진행 결과를 출력 ⇒ 횟수에 따라 반복
+7. ‘최종 우승자 : ${winners}’ 출력, 여러명은 쉼표를 기준으로 구분
+8. 종료
 
-- 볼과 스트라이크로 구분
-- 하나도 맞힌 게 없다면 ⇒ 낫싱
-- 모두 맞힐 경우에는 ⇒ 3개의 숫자를 모두 맞히셨습니다! 게임 종료
-- 게임을 시작할 때는 ⇒ 숫자 야구 게임을 시작합니다.
+## 기능 목록
 
-## 기능목록
+### Util
 
-- 스트라이크 판단 함수 - 컴퓨터와 유저 숫자에 같은 자리에 같은 숫자가 있다면 count +1
-- 볼 판단 함수 - 유저 숫자의 인덱스를 제외한 다른 자리에 같은 숫자가 있다면 count +1
-- 라운드 종료 함수 - 3스트라이크면 라운드 종료
-- 게임 재시작 함수 - 게임 이어갈 거냐는 입력에 1이 들어오면 게임 재시작, 2가 들어오면 게임 종료
-- 컴퓨터 숫자 생성 함수 - 라이브러리를 통해 random생성
-- 힌트 판단 함수 - 볼 판단 함수와 스트라이크 판단 함수를 통해 힌트를 반환
-- 유저 게임 진행 입력 함수 - 1과 2를 받아 게임을 다시 시작할지 종료할지 판단. 이외의 입력이 들어오면 에러
-- 유저 숫자 입력 함수 - 3가지 숫자를 받는 함수. 문자가 포함되거나, 3자리가 아니거나, 0이 포함되거나, 숫자가 중복된다면 에러
+- 0부터 9까지 랜덤 생성하여 수가 4이상이면 true, 4미만이면 false 리턴 - Util # isForward
+- 어레이를 순회하면서 해당 인덱스의 문자열 양쪽의 공백을 제거 - Util # trimStringInArray
+- carStateArray를 통해 우승자를 판단하여 문자열로 반환 - Util # getWinners
+
+### Validator
+
+- 입력받은 자동차 이름이 다음과 같을 때 에러
+1. 빈 문자열이 전달 ⇒ ‘[ERROR] 자동차 이름을 입력해주세요’
+2. 콤마 안에 공백이 포함 ⇒ ‘[ERROR] 모든 자동차에 이름을 지정해주세요’
+3. 이름이 6자이상 ⇒ ‘[ERROR] 5자 이하의 자동차 이름을 지정해주세요’
+4. 이름이 중복 ⇒ ‘[ERROR] 중복되지 않은 이름을 지정해주세요’
+
+- 입력받은 시도 횟수가 0이거나 숫자가 아니면 에러 - Validator # validateRoundsCount
+1. 시도 횟수를 0으로 입력 ⇒ ‘[ERROR] 자연수를 입력해주세요’
+2. 자연수가 아닌 수(소수)를 입력 ⇒ ‘[ERROR] 자연수를 입력해주세요’
+3. 숫자가 아닌 문자를 입력 ⇒ ‘[ERROR] 자연수를 입력해주세요’
+
+### CarClass
+
+- util의 isForward를 실행하여 true면 forwardCount += 1, false면 변화없음 - Car # tryForward
+- 해당 인스턴스의 name, forwardCount를 반환함 - Car # getCarState
+
+### RacingClass
+
+- 자동차 이름 어레이를 받아 생성한 인스턴스 어레이를 프로퍼티에 저장 # setCarArray
+- 자동차의 정보들(name, forwardCount)을 반환함 - Racing # getCarStateArray
+- 자동차들 action을 한 사이클 try함 - Racing # playRound
+
+### RacingController
+
+- RacingClass에서 playRound를 실행하고, 이후 CarStateArray를 받아 OutputView로 넘김 - RacingController # startRound
+- InputView에서 자동차 이름들을 받아 util의 splitByComma로 어레이로 변환해 RacingClass로 넘김 - RacingController # setupCars
+- 전달받은 횟수로 라운드 반복 - RacingController # runRounds
+- RacingClass에서 nowStatus를 받아 util의 getWinners를 거쳐 OutView로 우승자 정보를 넘김 - finishRacing
+- setUpCars, startRacing, finishRacing 실행 - RacingController # playRacing
+
+### InputView
+
+- 자동차 이름을 입력받음 - InputView # inputCarsName
+- 시도할 횟수를 입력받음 - InputView # inputTryCount
+
+### OutputView
+
+- ‘실행 결과’ 출력(앞에 \n) - OutputView # printRacingStart
+- 자동차들의 이름과 움직인 상태를 출력 (이름 : - * moveCount 형식, 끝에 \n) - OutputView # printRoundResult
+- 우승자를 출력함 (최종 우승자 : name 형식, 여러대면 쉼표로 구분) - OutputView # printWinners
+
+### Constants
+
+- 에러메시지들을 저장 - Constants # errorMassage
+- 사용자에게 보여줄 메시지들을 저장 - Constants # printMsg
