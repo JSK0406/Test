@@ -9,10 +9,6 @@
 <img src="https://github.com/JSK0406/Test/assets/122510664/59bd6288-5995-4a97-a210-f0a5e3d3181c" width="500" height="500">
 <img src="https://github.com/JSK0406/Test/assets/122510664/c7f110aa-4565-437d-add0-c0ecdc7c1610" width="500" height="500">
 
-![디렉토리 구조](https://github.com/JSK0406/Test/assets/122510664/59bd6288-5995-4a97-a210-f0a5e3d3181c){: width="500" height="500"}
-![테스트 커버리지](https://github.com/JSK0406/Test/assets/122510664/c7f110aa-4565-437d-add0-c0ecdc7c1610){: width="500" height="500"}
-
-
 ## 기능 요구사항 요약
 
 - 로또 번호는 1~45
