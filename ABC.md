@@ -6,9 +6,9 @@
 
 ## 디렉토리 구조, 테스트 커버리지 결과
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/ee027e0e-f247-4f84-95a6-0f08247c7fb1/5895f3b3-5c53-4468-a3c2-1f0df525ef2a/Untitled.png)
+![디렉토리 구조](https://github.com/JSK0406/Test/assets/122510664/59bd6288-5995-4a97-a210-f0a5e3d3181c)
+![테스트 커버리지](https://github.com/JSK0406/Test/assets/122510664/c7f110aa-4565-437d-add0-c0ecdc7c1610)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/ee027e0e-f247-4f84-95a6-0f08247c7fb1/9398f61d-bbbd-4921-96f6-d33f4280efe7/Untitled.png)
 
 ## 기능 요구사항 요약
 
