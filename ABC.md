@@ -1,188 +1,86 @@
-# 💰로또
+# IcloudU
 
-**사용자가 입력한 금액으로 로또를 자동생성**
+### 🖥️ 프로젝트 소개
 
-**사용자가 입력한 당첨 번호에 따라 생성된 로또의 결과를 출력**
+⭐ **QR코드를 이용한 자료 공유 플랫폼 사이트**
 
-## 디렉토리 구조, 테스트 커버리지 결과
+⭐ **대학 강의, 강연 등 불특정 다수에게 손쉽게 파일 공유**
 
-<img src="https://github.com/JSK0406/Test/assets/122510664/59bd6288-5995-4a97-a210-f0a5e3d3181c" width="500" height="500">
-<img src="https://github.com/JSK0406/Test/assets/122510664/c7f110aa-4565-437d-add0-c0ecdc7c1610" width="500" height="500">
-
-## 기능 요구사항 요약
-
-- 로또 번호는 1~45
-- 1개의 로또 안에는 중복되지 않은 6개의 숫자
-- 6개의 당첨번호 + 1개의 보너스 번호
-- 1등: 6개 번호 일치 / 2,000,000,000원
-- 2등: 5개 번호 + 보너스 번호 일치 / 30,000,000원
-- 3등: 5개 번호 일치 / 1,500,000원
-- 4등: 4개 번호 일치 / 50,000원
-- 5등: 3개 번호 일치 / 5,000원
-- 로또는 1장에 1000원이고 구입 금액(1000원 단위)만큼 로또 발행
-- 당첨 내역 및 수익률을 출력하고 게임 종료
-- 잘못된 값을 입력하면 throw로 예외
-
-## 입력
-
-- 구입금액(1000원 단위), 1000원단위가 아니라면 예외처리
-- 당첨번호(쉼표를 기준으로 구분, 1~45까지 중복 없이)
-- 보너스번호(앞에 당첨번호 제외한 나머지 수 중)
-
-## 출력
-
-- 발행한 로또 수량 및 번호 출력
-
-```
-8개를 구매했습니다.
-[8, 21, 23, 41, 42, 43]
-[3, 5, 11, 16, 32, 38]
-[7, 11, 16, 35, 36, 44]
-[1, 8, 11, 31, 41, 42]
-[13, 14, 16, 38, 42, 45]
-[7, 11, 30, 40, 42, 43]
-[2, 13, 22, 32, 38, 45]
-[1, 3, 5, 14, 22, 45]
-
-```
-
-- 당첨 내역 출력(형식은 일치하고 개수만 변화)
-
-```
-3개 일치 (5,000원) - 1개
-4개 일치 (50,000원) - 0개
-5개 일치 (1,500,000원) - 0개
-5개 일치, 보너스 볼 일치 (30,000,000원) - 0개
-6개 일치 (2,000,000,000원) - 0개
-
-```
-
-- 수익률 출력(소수 둘째자리에서 반올림)
-
-`총 수익률은 62.5%입니다.`
-
-## 실행결과 예시
-
-```
-구입금액을 입력해 주세요.
-8000
-
-8개를 구매했습니다.
-[8, 21, 23, 41, 42, 43]
-[3, 5, 11, 16, 32, 38]
-[7, 11, 16, 35, 36, 44]
-[1, 8, 11, 31, 41, 42]
-[13, 14, 16, 38, 42, 45]
-[7, 11, 30, 40, 42, 43]
-[2, 13, 22, 32, 38, 45]
-[1, 3, 5, 14, 22, 45]
-
-당첨 번호를 입력해 주세요.
-1,2,3,4,5,6
-
-보너스 번호를 입력해 주세요.
-7
-
-당첨 통계
 ---
-3개 일치 (5,000원) - 1개
-4개 일치 (50,000원) - 0개
-5개 일치 (1,500,000원) - 0개
-5개 일치, 보너스 볼 일치 (30,000,000원) - 0개
-6개 일치 (2,000,000,000원) - 0개
-총 수익률은 62.5%입니다.
 
-```
+### ✔ 주요 기능
 
-## 유저 플로우
+- 다운로더가 별도의 로그인 과정을 거치지 않고 QR코드 스캔만으로 파일을 다운로드할 수 있음
+- SNS 로그인 기능을 구현하여 사용자가 편리하게 로그인 할 수 있도록 함
+- 업로더가 업로드한 파일의 히스토리를 남겨 파일을 삭제하거나 공유 여부를 변경할 수 있도록 함
+- QR코드 스캔이 어려운 환경(데스크탑, 노트북 등)을 위하여 파일에 별도의 코드를 부여하여 다운로드할 수 있도록 함
 
-1. ‘구입금액을 입력해 주세요.’라는 안내 문구 출력
-2. 유저가 1000원 단위의 숫자를 입력(1000으로 나눠지지 않으면 에러)
-3. ‘{$개수}개를 구매했습니다.
-    
-    [1, 2, 3, 4, 5, 6] …’ 과 같이 개수와 그 밑에 구입한 내역들을 출력
-    
-4. ‘당첨 번호를 입력해주세요.’라는 안내 문구 출력
-5. 반점을 기준으로 6개의 숫자 입력(중복되거나 1~45의 범위가 아니거나 숫자가 아니라면 에러)
-6. ‘보너스 번호를 입력해 주세요.’라는 안내 문구 출력
-7. 1개의 숫자 입력(당첨 번호에 중복되거나, 1~45의 범위가 아니거나 숫자가 아니라면 에러)
-8. 아래와 같은 형식으로 당첨된 개수를 보여주고, 총 수익률을 출력
-
-```
-당첨 통계
 ---
-3개 일치 (5,000원) - 1개
-4개 일치 (50,000원) - 0개
-5개 일치 (1,500,000원) - 0개
-5개 일치, 보너스 볼 일치 (30,000,000원) - 0개
-6개 일치 (2,000,000,000원) - 0개
-총 수익률은 62.5%입니다.
 
-```
+### 🕰️ 개발기간
 
-1. 종료
+   **23.10.03. - 23.11.28.**
 
-## 기능 목록
+---
 
-### ⭐ 구입 금액
+### 🧑‍🤝‍🧑 맴버구성
 
-```
-- 구입 금액 input(구입금액을 입력해 주세요.)
-- 구입 금액이 1000원 단위인지 검증
-- 숫자인지 검증
+**프론트엔드**
 
-```
+- 김지성 : https://github.com/JSK0406
+- 권유빈 : https://github.com/ybg1219
 
-### ⭐ 당첨 번호
+**백엔드**
 
-```
-- 당첨 번호 input(당첨 번호를 입력해 주세요.)
-- 1~45의 범위인지 검증
-- 중복된 수는 없는지 검증
-- 문자가 포함되지 않았는지 검증
+- 박하운 : https://github.com/poow810
+- 이다빈 : https://github.com/leedabin2
+- 김도환 : https://github.com/coliny123
 
-```
+---
 
-### ⭐ 보너스 번호
+### ⚙️ 기술 스텍
 
-```
-- 보너스번호 input(보너스 번호를 입력해 주세요.)
-- 당첨 번호와 중복된 수가 있는지 검증
-- 문자가 포함되지 않았는지 검증
-- 1~45의 범위인지 검증
+### Backend
 
-```
+<img src="https://img.shields.io/badge/java-000000?style=for-the-badge&logo=java&logoColor=white"> <img src="https://img.shields.io/badge/springboot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white"> <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"> <img src="https://img.shields.io/badge/jsonwebtokens-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white">
 
-### ⭐ 자동 생성 로또
+### Frontend
 
-```
-- 1~45까지 중복되지 않는 숫자를 생성하여 로또 생성
+<img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=white"> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white"> <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"> <img src="https://img.shields.io/badge/css3-1572B6?style=for-the-badge&logo=css3&logoColor=white"> <img src="https://img.shields.io/badge/axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white"> <img src="https://img.shields.io/badge/reactquery-FF4154?style=for-the-badge&logo=reactquery&logoColor=white"> <img src="https://img.shields.io/badge/reactrouter-CA4245?style=for-the-badge&logo=reactrouter&logoColor=white"> <img src="https://img.shields.io/badge/tailwindcss-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white"> <img src="https://img.shields.io/badge/mui-007FFF?style=for-the-badge&logo=mui&logoColor=white">
 
-```
+### Deploy
 
-### ⭐ 출력
+<img src="https://img.shields.io/badge/amazonaws-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white"> <img src="https://img.shields.io/badge/amazonec2-FF9900?style=for-the-badge&logo=amazonec2&logoColor=white"> <img src="https://img.shields.io/badge/amazons3-569A31?style=for-the-badge&logo=amazons3&logoColor=white"> <img src="https://img.shields.io/badge/vercel-000000?style=for-the-badge&logo=vercel&logoColor=white">
 
-```
-- ‘{$count}개를 구매했습니다.’ 출력
-- ‘[1, 2, 3, 4, 5, 6]’의 형식으로 번호 출력
-- ‘당첨 통계\\n—-’출력
-- 5등 결과 출력
-- 4등 결과 출력
-- 3등 결과 출력
-- 2등 결과 출력
-- 1등 결과 출력
-- 수익률 출력
+---
 
-```
+### 🎞️ 시연 영상
 
-### ⭐ 결과
+1. **로그인**
+    
+![로그인](https://github.com/JSK0406/Test/assets/122510664/4e40651f-381f-4300-b703-dceaf81b6e0b)
 
-```
-- 5등 체크
-- 4등 체크
-- 3등 체크
-- 2등 체크
-- 1등 체크
-- 구매금액과 당첨 금액, 당첨 개수를 통해 수익률 계산(둘째 자리에서 반올림)
+2. **파일 업로드**
+    
+![파일 업로드](https://github.com/JSK0406/Test/assets/122510664/792b0b59-30d1-4493-8269-c6770f87283f)
 
-```
+    
+3. **QR코드 스캔(QR코드 스캔 후 접속되는 웹페이지)**
+    
+![QR스캔](https://github.com/JSK0406/Test/assets/122510664/e72946ec-2f11-43d0-9c83-382e581a3e03)
+
+    
+4. **파일 관리 페이지**
+    
+![파일 관리 페이지](https://github.com/JSK0406/Test/assets/122510664/ba74b65c-39f9-457f-8a2d-1f0c753e759b)
+
+    
+5. **인증 코드 입력**
+    
+![인증 코드 입력](https://github.com/JSK0406/Test/assets/122510664/110f6fc4-c693-4bdc-aeea-c3184a506f20)
+
+    
+
+### 🖥️ 화면 구성
+
+![Untitled](https://github.com/JSK0406/Test/assets/122510664/f991c9da-cd76-4696-9934-4a9c59235c04)
