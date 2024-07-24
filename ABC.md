@@ -1,86 +1,123 @@
-# IcloudU
+# 🍓 Team1-Strawberry-FE
 
-### 🖥️ 프로젝트 소개
+<br>
 
-⭐ **QR코드를 이용한 자료 공유 플랫폼 사이트**
+## 프로젝트 소개
 
-⭐ **대학 강의, 강연 등 불특정 다수에게 손쉽게 파일 공유**
+- 현대자동차그룹 소프티어 부트캠프 4기 프로젝트입니다.
+- 기획, 디자인 팀원과 상의한 산출물을 기반으로 개발하며, 사용자 경험 향상을 위해 끊임없이 개선점을 찾아가며 완성도 높은 결과를 목표로 하고있습니다.
 
----
+<br>
 
-### ✔ 주요 기능
+## 프론트 팀원 구성
 
-- 다운로더가 별도의 로그인 과정을 거치지 않고 QR코드 스캔만으로 파일을 다운로드할 수 있음
-- SNS 로그인 기능을 구현하여 사용자가 편리하게 로그인 할 수 있도록 함
-- 업로더가 업로드한 파일의 히스토리를 남겨 파일을 삭제하거나 공유 여부를 변경할 수 있도록 함
-- QR코드 스캔이 어려운 환경(데스크탑, 노트북 등)을 위하여 파일에 별도의 코드를 부여하여 다운로드할 수 있도록 함
+<div align="center">
 
----
+| 김지성 | 마경미 |
+| --- | --- |
+| [<img src="https://avatars.githubusercontent.com/u/122510664?v=4" height=150 width=150> <br/> @JSK0406](https://github.com/JSK0406) | [<img src="https://avatars.githubusercontent.com/u/62610032?v=4" height=150 width=150> <br/> @akrudal](https://github.com/akrudal) |
 
-### 🕰️ 개발기간
 
-   **23.10.03. - 23.11.28.**
+</div>
 
----
+<br>
 
-### 🧑‍🤝‍🧑 맴버구성
+## 프로젝트 구현 예정 기능
 
-**프론트엔드**
+### 1. 랜딩 페이지
 
-- 김지성 : https://github.com/JSK0406
-- 권유빈 : https://github.com/ybg1219
+- 유저가 페이지에 처음 접속했을 때 볼 수 있는 페이지입니다.
+- 신차에 대한 간략한 소개와 진행하는 이벤트의 설명을 확인할 수 있습니다.
 
-**백엔드**
+### 2. 신차 소개 페이지
 
-- 박하운 : https://github.com/poow810
-- 이다빈 : https://github.com/leedabin2
-- 김도환 : https://github.com/coliny123
+- 신차에 대한 상세한 설명을 볼 수 있는 페이지입니다.
+- 각종 디자인 요소들과, 스크롤 이벤트, 캐러셀, 모달, 선택한 옵션의 차량 렌더링 등을 통해 사용자 경험 향상을 위합니다.
 
----
+### 3. 선착순 퀴즈 이벤트 페이지
 
-### ⚙️ 기술 스텍
+- 선착순으로 퀴즈를 맞추는 이벤트를 진행하는 페이지입니다.
+- 소개 페이지와 진행 페이지로 나뉩니다.
+- 이벤트 진행 페이지에서 퀴즈를 진행한 후 바로 결과를 확인할 수 있습니다.
 
-### Backend
+### 4. 드로잉 이벤트 페이지
 
-<img src="https://img.shields.io/badge/java-000000?style=for-the-badge&logo=java&logoColor=white"> <img src="https://img.shields.io/badge/springboot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white"> <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"> <img src="https://img.shields.io/badge/jsonwebtokens-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white">
+- 신차의 주요 특징을 드로잉 게임을 통해 고객에게 알릴 수 있는 페이지입니다.
+- 소개 페이지, 진행 페이지, 결과 페이지로 나뉩니다.
+- 소개 페이지에서 점수 랭킹과 자신의 점수를 확인할 수 있습니다.
+- Canvas API를 사용하여 3단계의 드로잉 게임을 구현할 예정입니다.
+- 사용자는 게임 진행 후 결과를 확인하고 이를 링크 공유할 수 있습니다.
 
-### Frontend
+### 5. 기대평 페이지
 
-<img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=white"> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white"> <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"> <img src="https://img.shields.io/badge/css3-1572B6?style=for-the-badge&logo=css3&logoColor=white"> <img src="https://img.shields.io/badge/axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white"> <img src="https://img.shields.io/badge/reactquery-FF4154?style=for-the-badge&logo=reactquery&logoColor=white"> <img src="https://img.shields.io/badge/reactrouter-CA4245?style=for-the-badge&logo=reactrouter&logoColor=white"> <img src="https://img.shields.io/badge/tailwindcss-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white"> <img src="https://img.shields.io/badge/mui-007FFF?style=for-the-badge&logo=mui&logoColor=white">
+- 신차에 대한 기대평을 작성할 수 있는 페이지입니다.
+- 고객은 기대평을 작성하거나 타인의 댓글을 확인할 수 있습니다.
+- 지정한 단어를 사용하면 경고창이 뜨는 비속어 필터 기능을 추가할 예정입니다.
 
-### Deploy
+<br>
 
-<img src="https://img.shields.io/badge/amazonaws-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white"> <img src="https://img.shields.io/badge/amazonec2-FF9900?style=for-the-badge&logo=amazonec2&logoColor=white"> <img src="https://img.shields.io/badge/amazons3-569A31?style=for-the-badge&logo=amazons3&logoColor=white"> <img src="https://img.shields.io/badge/vercel-000000?style=for-the-badge&logo=vercel&logoColor=white">
+<br>
 
----
+## 개발 환경
 
-### 🎞️ 시연 영상
+- Front : HTML, CSS, Javascript,  React, styled-components, Context API
+- 버전 및 이슈관리 : Github, Github Issues
+- 협업 툴 : Notion
+- 서비스 배포 환경 : AWS EC2
 
-1. **로그인**
-    
-![로그인](https://github.com/JSK0406/Test/assets/122510664/4e40651f-381f-4300-b703-dceaf81b6e0b)
+<br>
 
-2. **파일 업로드**
-    
-![파일 업로드](https://github.com/JSK0406/Test/assets/122510664/792b0b59-30d1-4493-8269-c6770f87283f)
+## 프로젝트 구조
 
-    
-3. **QR코드 스캔(QR코드 스캔 후 접속되는 웹페이지)**
-    
-![QR스캔](https://github.com/JSK0406/Test/assets/122510664/e72946ec-2f11-43d0-9c83-382e581a3e03)
-
-    
-4. **파일 관리 페이지**
-    
-![파일 관리 페이지](https://github.com/JSK0406/Test/assets/122510664/ba74b65c-39f9-457f-8a2d-1f0c753e759b)
-
-    
-5. **인증 코드 입력**
-    
-![인증 코드 입력](https://github.com/JSK0406/Test/assets/122510664/110f6fc4-c693-4bdc-aeea-c3184a506f20)
-
-    
-
-### 🖥️ 화면 구성
-
-![Untitled](https://github.com/JSK0406/Test/assets/122510664/f991c9da-cd76-4696-9934-4a9c59235c04)
+```
+─ src
+  ├─ assets
+  │  └─ images
+  ├─ App.tsx
+  ├─ main.tsx
+  ├─ core
+  │  ├─ contexts
+  │  ├─ design_system
+  │  └─ utils
+  ├─ layout
+  │  ├─ DefaultLayout.tsx
+  │  ├─ HeaderLayout.tsx
+  │  └─ components
+  ├─ pages
+  │  ├─ common
+  │  │  ├─ components
+  │  │  ├─ contexts
+  │  │  ├─ hooks
+  │  │  └─ services
+  │  ├─ drawing
+  │  │  ├─ components
+  │  │  ├─ contexts
+  │  │  ├─ hooks
+  │  │  └─ services
+  │  ├─ expectation
+  │  │  ├─ components
+  │  │  ├─ contexts
+  │  │  ├─ hooks
+  │  │  └─ services
+  │  ├─ introduce
+  │  │  ├─ components
+  │  │  ├─ contexts
+  │  │  ├─ hooks
+  │  │  └─ services
+  │  ├─ login
+  │  │  ├─ components
+  │  │  ├─ contexts
+  │  │  ├─ hooks
+  │  │  └─ services
+  │  ├─ newCar
+  │  │  ├─ components
+  │  │  ├─ contexts
+  │  │  ├─ hooks
+  │  │  └─ services
+  │  └─ quiz
+  │     ├─ components
+  │     ├─ contexts
+  │     ├─ hooks
+  │     └─ services
+  └─ router
+```
